@@ -1,0 +1,47 @@
+			Theme
+			Choose themes
+			by Guido Schimmels
+
+Brief
+~~~~~
+
+Theme
+
+Theme lets you choose toolkit (GTK+) themes and icon themes (XDG).
+OroboROX window-manager theme support is planned.
+Maybe Qt/KDE themes will be supported in the future as well.
+
+
+New versions can be found here:
+
+	http://roxos.sunsite.dk/dev-contrib/guido/Configure
+
+You need to be running a recent (later than 0.1.21) version of ROX-Session,
+otherwise it won't work.
+
+
+Conditions
+~~~~~~~~~~
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+
+Credits
+~~~~~~~
+The icon was taken from the Wasp theme
+
+
+Please report any bugs to the mailing list:
+
+	http://rox.sourceforge.net/phpwiki/index.php/MailingLists

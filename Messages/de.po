@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Toolbar&Menus 0.8\n"
+"POT-Creation-Date: 2006-05-11 18:16+UTC\n"
+"PO-Revision-Date: 2004-04-30\n"
+"Last-Translator: Guido Schimmels <__guido__@web.de>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.4\n"
+
+#: AppRun:34
+msgid "Text below icons"
+msgstr "Text unter Symbolen"
+
+#: AppRun:34
+msgid "Text beside icons"
+msgstr "Text neben Symbolen"
+
+#: AppRun:35
+msgid "Icons only"
+msgstr "Nur Symbole"
+
+#: AppRun:35
+msgid "Text only"
+msgstr "Nur Text"
+
+#: tips:1 tips:5
+msgid "Theme"
+msgstr "Thema"
+
+#: tips:2
+msgid "Desktop background"
+msgstr "Schreibtischhintergrund"
+
+#: tips:3 tips:4
+msgid ""
+"Bring up the menu over the desktop background to set the backdrop image or "
+"change the pinboard options."
+msgstr ""
+"Mauszeiger auf freien Schreibtischbereich bewegen und das Menü per rechter "
+"Maustaste aufrufen und Menüpunkt 'Hintergrund...' oder ROX-Filer-"
+"Pinwandoptionen."
+
+#: tips:6
+msgid "GTK theme"
+msgstr "GTK-Thema"
+
+#: tips:7
+msgid "Icon theme"
+msgstr "Symbolthema"
+
+#: tips:8
+msgid "Toolbars and Menus"
+msgstr "Werkzeugleisten und Menüs"
+
+#: tips:9
+msgid "Show icons in menus"
+msgstr "Symbole in den Menüs anzeigen"
+
+#: tips:10
+msgid "Detachable toolbars"
+msgstr "Abtrennbare Werkzeugleisten"
+
+#: tips:11
+msgid "Toolbar style:"
+msgstr "Knopfbeschriftungen in Werkzeugleisten"

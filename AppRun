@@ -1,0 +1,84 @@
+#!/usr/bin/env python2.4
+import findrox; findrox.version(1, 9, 13)
+
+import sys, os
+import rox
+from rox.settings import Settings, Setting, BoolSetting, get_gconf
+from rox import OptionsBox, g
+
+try:
+	import gconf
+except:
+	pass
+
+import theme
+
+__builtins__._ = rox.i18n.translation(os.path.join(rox.app_dir, 'Messages'))
+
+settings = Settings()
+
+def build_toolbar_style_menu(box, node, label, option):
+	client = get_gconf()
+	hbox = g.HBox(False, 4)
+
+	hbox.pack_start(g.Label(_(label)), False, True, 0)
+
+	button = g.OptionMenu()
+	hbox.pack_start(button, True, True, 0)
+
+	menu = g.Menu()
+	button.set_menu(menu)
+	#button.set_size_request(150, -1)
+ 
+	values = [ 'both', 'both-horiz', 'icons', 'text' ]
+	labels  = [_('Text below icons'), _('Text beside icons'),
+		    _('Icons only'), _('Text only') ]
+
+	for label in labels:
+		item = g.MenuItem(label)
+		menu.append(item)
+		item.show_all()
+	
+	def get(): 
+	    toolbar_style = values[button.get_history()]
+	    if client:
+			client.set_string ("/desktop/gnome/interface/toolbar_style", 
+							     toolbar_style)
+	    return toolbar_style
+
+	def set(): 
+	    toolbar_style=option.value
+	    if client:
+			client.set_string ("/desktop/gnome/interface/toolbar_style", 
+							     toolbar_style)
+	    return button.set_history(values.index(toolbar_style))
+
+	box.handlers[option] = (get, set)
+	button.connect('changed', lambda w: box.check_widget(option))
+	return [hbox]
+	
+OptionsBox.widget_registry['dirmenu'] = build_toolbar_style_menu
+
+settings = Settings()
+
+class ThemeSetting(BoolSetting):
+	def __init__(self, name, default, gconf_key = None):
+		BoolSetting.__init__(self, name, default, settings, False, gconf_key)
+
+ThemeSetting('menus_have_icons', 1, 'menus_have_icons')
+#ThemeSetting('menubar_detachable', 0)
+#ThemeSetting('menus_have_tearoff', 0)
+
+ThemeSetting('toolbar_detachable', 0, 'toolbar_detachable')
+#ThemeSetting('Gtk/ToolbarIconSize', 32)
+Setting('Gtk/ToolbarStyle', 'icons', settings, True)
+
+
+
+Setting('Net/ThemeName', "Default", settings, True, 'gtk_theme')
+Setting('Net/IconThemeName', "hicolor", settings, True, 'icon_theme')
+
+box = OptionsBox.OptionsBox(settings, os.path.join(rox.app_dir, 'Options.xml'))
+box.open()
+
+rox.mainloop()

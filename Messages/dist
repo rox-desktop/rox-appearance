@@ -1,0 +1,9 @@
+#!/bin/sh
+
+echo Making all .mo files...
+echo
+
+for FILE in *.po; do
+    OUT=${FILE%.po}.gmo
+	msgfmt $FILE -o $OUT && echo Created file $OUT OK
+done

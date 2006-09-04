@@ -1,0 +1,32 @@
+<?xml version='1.0'?>
+<options>
+  <section title='Theme'>
+    
+    <frame label='Desktop background'>
+      <label help='1'>Bring up the menu over the desktop background to set the backdrop image or change the pinboard options.</label>
+    </frame>
+    <frame label='Theme'>
+		<gtk-theme name='Net/ThemeName' label='GTK theme' size-group='theme'/>
+		<icon-theme name='Net/IconThemeName' label='Icon theme' size-group='theme'/>
+    </frame>
+  
+<frame label='Toolbars and Menus'>
+		<!--
+		<toggle label='Menubar detachable' name='menubar_detachable'/>
+		<toggle label='Menus have tearoff' name='menus_have_tearoff'/>
+		-->
+		<toggle label='Show icons in menus' name='menus_have_icons'/>
+		<toggle label='Detachable toolbars' name='toolbar_detachable'/>
+		<!--
+		<numentry label='Size of toolbar icons' name='Gtk/ToolbarIconSize' min='16' max='64' step='16'/>
+		-->
+		<spacer/>
+		<dirmenu label='Toolbar style:' name='Gtk/ToolbarStyle' ></dirmenu>
+    </frame>
+    
+     <!--
+	<frame label='Preview'>
+	</frame>
+	-->
+  </section>
+</options>
