@@ -1,0 +1,71 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Appearance 0.8.0\n"
+"POT-Creation-Date: 2007-07-14 16:24+BST\n"
+"PO-Revision-Date: 2007-07-14 03:33+EEST\n"
+"Last-Translator: Konstantin Korikov <lostclus@ua.fm>\n"
+"Language-Team: Russian <RU@ru.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.1\n"
+
+#: AppRun:34
+msgid "Text below icons"
+msgstr "Текст под значками"
+
+#: AppRun:34
+msgid "Text beside icons"
+msgstr "Текст рядом со значками"
+
+#: AppRun:35
+msgid "Icons only"
+msgstr "Только значки"
+
+#: AppRun:35
+msgid "Text only"
+msgstr "Только текст"
+
+#: tips:1 tips:5
+msgid "Theme"
+msgstr "Тема"
+
+#: tips:2
+msgid "Desktop background"
+msgstr "Фон рабочего стола"
+
+#: tips:3 tips:4
+msgid ""
+"Bring up the menu over the desktop background to set the backdrop image or "
+"change the pinboard options."
+msgstr ""
+"Для установки обоев или изменения параметров витрины воспользуйтесь "
+"контекстным меню рабочего стола."
+
+#: tips:6
+msgid "GTK theme"
+msgstr "Тема GTK"
+
+#: tips:7
+msgid "Icon theme"
+msgstr "Тема значков"
+
+#: tips:8
+msgid "Toolbars and Menus"
+msgstr "Меню и панели инструментов"
+
+#: tips:9
+msgid "Show icons in menus"
+msgstr "Показывать значки в меню"
+
+#: tips:10
+msgid "Detachable toolbars"
+msgstr "Отсоединяемые панели инструментов"
+
+#: tips:11
+msgid "Toolbar style:"
+msgstr "Стиль панели инструментов:"
