@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <AppInfo>
-		<Summary xml:lang="en">Choose GTK+ and icon theme</Summary>
+		<Summary xml:lang="en">Configure desktop appearance</Summary>
 		<Summary xml:lang="de">GTK+ und Symbolthema wählen</Summary>
 	<About xml:lang="en">
-		<Purpose>Choose Theme</Purpose>
-		<Version>0.8.0</Version>
+		<Purpose>Configure desktop appearance</Purpose>
+		<Version>0.9.0</Version>
 		<Authors>Guido Schimmels &lt;__guido__@web.de&gt;
 		  Tony Houghton &lt;h@realh.co.uk&gt;</Authors>
 		<License>GPL</License>

@@ -8,6 +8,7 @@
     <frame label='Theme'>
 		<gtk-theme name='Net/ThemeName' label='GTK theme' size-group='theme'/>
 		<icon-theme name='Net/IconThemeName' label='Icon theme' size-group='theme'/>
+		<button name='Gtk/ColorScheme' label='Colour scheme'/>
     </frame>
   
 <frame label='Toolbars and Menus'>

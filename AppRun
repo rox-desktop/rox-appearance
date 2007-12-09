@@ -5,6 +5,7 @@ import sys, os
 import rox
 from rox.settings import Settings, Setting, BoolSetting, get_gconf
 from rox import OptionsBox, g
+import colourscheme
 
 try:
 	import gconf
@@ -58,6 +59,7 @@ def build_toolbar_style_menu(box, node, label, option):
 	return [hbox]
 	
 OptionsBox.widget_registry['dirmenu'] = build_toolbar_style_menu
+OptionsBox.widget_registry['button'] = colourscheme.build_parent_button
 
 settings = Settings()
 
@@ -77,6 +79,9 @@ Setting('Gtk/ToolbarStyle', 'icons', settings, True)
 
 Setting('Net/ThemeName', "Default", settings, True, 'gtk_theme')
 Setting('Net/IconThemeName', "hicolor", settings, True, 'icon_theme')
+
+colourscheme.init(Setting('Gtk/ColorScheme', '', settings, True,
+	'gtk_color_scheme'))
 
 box = OptionsBox.OptionsBox(settings, os.path.join(rox.app_dir, 'Options.xml'))
 box.open()
