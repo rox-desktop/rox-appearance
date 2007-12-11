@@ -24,11 +24,9 @@ def build_toolbar_style_menu(box, node, label, option):
 
 	hbox.pack_start(g.Label(_(label)), False, True, 0)
 
-	button = g.OptionMenu()
+	button = g.combo_box_new_text()
 	hbox.pack_start(button, True, True, 0)
 
-	menu = g.Menu()
-	button.set_menu(menu)
 	#button.set_size_request(150, -1)
  
 	values = [ 'both', 'both-horiz', 'icons', 'text' ]
@@ -36,12 +34,10 @@ def build_toolbar_style_menu(box, node, label, option):
 		    _('Icons only'), _('Text only') ]
 
 	for label in labels:
-		item = g.MenuItem(label)
-		menu.append(item)
-		item.show_all()
+		button.append_text(label)
 	
 	def get(): 
-	    toolbar_style = values[button.get_history()]
+	    toolbar_style = values[button.get_active()]
 	    if client:
 			client.set_string ("/desktop/gnome/interface/toolbar_style", 
 							     toolbar_style)
@@ -52,7 +48,7 @@ def build_toolbar_style_menu(box, node, label, option):
 	    if client:
 			client.set_string ("/desktop/gnome/interface/toolbar_style", 
 							     toolbar_style)
-	    return button.set_history(values.index(toolbar_style))
+	    return button.set_active(values.index(toolbar_style))
 
 	box.handlers[option] = (get, set)
 	button.connect('changed', lambda w: box.check_widget(option))

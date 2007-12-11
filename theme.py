@@ -19,11 +19,8 @@ def build_gtk_theme(box, node, label, option):
 
 	hbox.pack_start(box.make_sized_label(label), False, True, 0)
 
-	button = g.OptionMenu()
+	button = g.combo_box_new_text()
 	hbox.pack_start(button, True, True, 0)
-
-	menu = g.Menu()
-	button.set_menu(menu)
 
 	themes = {}
 	user_dir = os.path.expanduser('~/.themes')
@@ -34,24 +31,17 @@ def build_gtk_theme(box, node, label, option):
 	names.sort()
 
 	for name in names:
-		item = g.MenuItem(name)
-		menu.append(item)
-		item.show_all()
+		button.append_text(name)
 
 	def update_theme():
 		i = -1
-		for kid in menu.get_children():
+		for name in names:
 			i += 1
-			item = kid.child
-
-			# The label actually moves from the menu!!
-			if not item:
-				item = button.child
-			label = item.get_text()
-			if label == option.value:
-				button.set_history(i)
+			if name == option.value:
+				button.set_active(i)
+				break
 	
-	def read_theme(): return button.child.get_text()
+	def read_theme(): return button.get_active_text()
 
 	box.handlers[option] = (read_theme, update_theme)
 
@@ -73,11 +63,8 @@ def build_icon_theme(box, node, label, option):
 
 	hbox.pack_start(box.make_sized_label(label), False, True, 0)
 
-	button = g.OptionMenu()
+	button = g.combo_box_new_text()
 	hbox.pack_start(button, True, True, 0)
-
-	menu = g.Menu()
-	button.set_menu(menu)
 
 	themes = {}
 	add_icon_themes(themes, os.path.expanduser('~/.icons'))
@@ -91,24 +78,16 @@ def build_icon_theme(box, node, label, option):
 	names.sort()
 
 	for name in names:
-		item = g.MenuItem(name)
-		menu.append(item)
-		item.show_all()
+		button.append_text(name)
 
 	def update_theme():
 		i = -1
-		for kid in menu.get_children():
+		for name in names:
 			i += 1
-			item = kid.child
-
-			# The label actually moves from the menu!!
-			if not item:
-				item = button.child
-			label = item.get_text()
-			if label == option.value:
-				button.set_history(i)
+			if name == option.value:
+				button.set_active(i)
 	
-	def read_theme(): return button.child.get_text()
+	def read_theme(): return button.get_active_text()
 
 	box.handlers[option] = (read_theme, update_theme)
 

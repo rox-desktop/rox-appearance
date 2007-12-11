@@ -180,4 +180,7 @@ def build_parent_button(box, node, label, option):
 	button.connect("clicked", open_colours_dialog, box)
 	hbox = gtk.HBox()
 	hbox.pack_start(button, False, False)
+	def null():
+		pass
+	box.handlers[option] = (null, null)
 	return [hbox]
