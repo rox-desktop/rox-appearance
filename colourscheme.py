@@ -41,8 +41,7 @@ def compare_colour_schemes(scheme1, scheme2):
 def colour_scheme_string_from_gtk_settings(settings = None):
 	if not settings:
 		settings = _gtk_settings
-	s = _gtk_settings.get_property('gtk-color-scheme')
-	return s
+	return _gtk_settings.get_property('gtk-color-scheme')
 
 
 def _colour_scheme_changed_cb(settings, spec):
@@ -51,7 +50,7 @@ def _colour_scheme_changed_cb(settings, spec):
 	new_scheme_str = colour_scheme_string_from_gtk_settings(settings)
 	if compare_colour_schemes(new_scheme_str, _colours):
 		_colours = colour_scheme_parse(new_scheme_str)
-		_rox_setting._set(s)
+		_rox_setting._set(new_scheme_str)
 
 
 def init(setting):
@@ -67,6 +66,16 @@ class ColoursDialog(gtk.Dialog):
 		gtk.Dialog.__init__(self, 'Colour scheme', parent_window,
 				gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
 				(gtk.STOCK_CLOSE, gtk.RESPONSE_CLOSE))
+		self.tip_hbox = gtk.HBox(spacing = PADDING)
+		self.tip_hbox.pack_start( \
+				gtk.image_new_from_stock(gtk.STOCK_DIALOG_INFO,
+					gtk.ICON_SIZE_DIALOG),
+				False, False, PADDING)
+		label = gtk.Label('The current theme does not allow the colour ' \
+				'scheme to be changed')
+		label.set_line_wrap(True)
+		self.tip_hbox.pack_start(label, True, True, PADDING)
+		self.vbox.pack_start(self.tip_hbox)
 		self.table = gtk.Table(5, 3, False)
 		self.table.attach(gtk.Label('Background'), 1, 2, 0, 1,
 				gtk.FILL, gtk.FILL, PADDING, PADDING)
@@ -79,10 +88,10 @@ class ColoursDialog(gtk.Dialog):
 		self.__add_to_table(4, 'Tooltips:',
 				'tooltip_bg_color', 'tooltip_fg_color')
 		self.vbox.pack_start(self.table)
-		button = gtk.Button('Defaults')
-		button.connect('clicked', self.__defaults_clicked_cb)
+		self.dflt_button = gtk.Button('Defaults')
+		self.dflt_button.connect('clicked', self.__defaults_clicked_cb)
 		hbox = gtk.HBox()
-		hbox.pack_end(button, False, False, PADDING)
+		hbox.pack_end(self.dflt_button, False, False, PADDING)
 		self.vbox.pack_start(hbox, padding = PADDING)
 		self.vbox.show_all()
 		self.colour_scheme_changed_id = \
@@ -134,14 +143,25 @@ class ColoursDialog(gtk.Dialog):
 				new_colour.blue != old_colour.blue:
 			w.set_color(new_colour)
 	
+	def __set_sensitive(self, sensitive):
+		for w in self.cwidgets.values():
+			w.set_sensitive(sensitive)
+		self.dflt_button.set_sensitive(sensitive)
+	
 	def update_from_settings(self, settings = None):
 		global _colours
 		if not settings:
 			settings = _gtk_settings
 		_colours = colour_scheme_parse( \
 				colour_scheme_string_from_gtk_settings(settings))
-		for k, v in _colours.items():
-			self.update_colour_widget_from_string(k, v)
+		if _colours:
+			self.tip_hbox.hide()
+			for k, v in _colours.items():
+				self.update_colour_widget_from_string(k, v)
+			self.__set_sensitive(True)
+		else:
+			self.tip_hbox.show_all()
+			self.__set_sensitive(False)
 	
 	def __defaults_clicked_cb(self, widget):
 		global _rox_setting
