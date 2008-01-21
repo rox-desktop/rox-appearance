@@ -44,24 +44,16 @@ def colour_scheme_string_from_gtk_settings(settings = None):
 	return _gtk_settings.get_property('gtk-color-scheme')
 
 
-def _colour_scheme_changed_cb(settings, spec):
-	global _colours
-	global _rox_setting
-	new_scheme_str = colour_scheme_string_from_gtk_settings(settings)
-	if compare_colour_schemes(new_scheme_str, _colours):
-		_colours = colour_scheme_parse(new_scheme_str)
-		_rox_setting._set(new_scheme_str)
-
-
 def init(setting):
 	global _rox_setting, _gtk_settings, _colours
 	_rox_setting = setting
-	_colours = colour_scheme_parse(colour_scheme_string_from_gtk_settings())
-	_gtk_settings.connect('notify::gtk-color-scheme', _colour_scheme_changed_cb)
 
 
 class ColoursDialog(gtk.Dialog):
 	def __init__(self, parent_window):
+		# Update _colours every time we're created in case scheme changed
+		# while dialog was closed and we weren't listening
+		_colours = colour_scheme_parse(colour_scheme_string_from_gtk_settings())
 		self.cwidgets = {}
 		gtk.Dialog.__init__(self, 'Colour scheme', parent_window,
 				gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
@@ -98,12 +90,24 @@ class ColoursDialog(gtk.Dialog):
 				_gtk_settings.connect('notify::gtk-color-scheme',
 						self.__colour_scheme_changed_cb)
 		self.connect('destroy', self.__destroy_cb)
+		self.ignore_color_widget_set_cb = False
+		self.ignore_colour_scheme_changed_cb = False
 	
 	def __destroy_cb(self, object):
 		_gtk_settings.disconnect(self.colour_scheme_changed_id)
 	
 	def __colour_scheme_changed_cb(self, settings, spec):
-		self.update_from_settings(settings)
+		if self.ignore_colour_scheme_changed_cb:
+			return
+		global _colours
+		global _rox_setting
+		new_scheme_str = colour_scheme_string_from_gtk_settings(settings)
+		if compare_colour_schemes(new_scheme_str, _colours):
+			_colours = colour_scheme_parse(new_scheme_str)
+			self.ignore_colour_scheme_changed_cb = True
+			_rox_setting._set(new_scheme_str)
+			self.ignore_colour_scheme_changed_cb = False
+			self.update_from_settings(settings)
 
 	def __add_to_table(self, row, label, background, foreground):
 		lw = gtk.Label(label)
@@ -124,15 +128,21 @@ class ColoursDialog(gtk.Dialog):
 		return w
 
 	def __colour_set_cb(self, widget, name):
+		if self.ignore_color_widget_set_cb:
+			return
 		global _colours
-		colour_str = '#%04x%04x%04x\n' % (c.red, c.green, c.blue)
+		c = widget.get_color()
+		colour_str = '#%04x%04x%04x' % (c.red, c.green, c.blue)
 		_colours[name] = colour_str
 		s = ""
 		for k, v in self.cwidgets.items():
 			c = v.get_color()
+			colour_str = '#%04x%04x%04x' % (c.red, c.green, c.blue)
 			s += '%s: %s\n' % (k, colour_str)
 		global _rox_setting
+		self.ignore_colour_scheme_changed_cb = True
 		_rox_setting._set(s)
+		self.ignore_colour_scheme_changed_cb = False
 
 	def update_colour_widget_from_string(self, name, value):
 		w = self.cwidgets[name]
@@ -154,6 +164,7 @@ class ColoursDialog(gtk.Dialog):
 			settings = _gtk_settings
 		_colours = colour_scheme_parse( \
 				colour_scheme_string_from_gtk_settings(settings))
+		self.ignore_color_widget_set_cb = True
 		if _colours:
 			self.tip_hbox.hide()
 			for k, v in _colours.items():
@@ -162,10 +173,13 @@ class ColoursDialog(gtk.Dialog):
 		else:
 			self.tip_hbox.show_all()
 			self.__set_sensitive(False)
+		self.ignore_color_widget_set_cb = False
 	
 	def __defaults_clicked_cb(self, widget):
 		global _rox_setting
+		self.ignore_colour_scheme_changed_cb = True
 		_rox_setting._set('')
+		self.ignore_colour_scheme_changed_cb = False
 
 
 def open_colours_dialog(widget, parent_window):
