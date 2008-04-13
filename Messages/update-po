@@ -5,6 +5,7 @@ echo
 
 python ./tips.py
 (cd ..; pygettext AppRun *.py tips)
+rm ../tips
 
 echo
 echo Updating all .po files...
