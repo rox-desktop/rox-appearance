@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2006-05-11 18:16+UTC\n"
+"POT-Creation-Date: 2008-04-13 22:15+BST\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,19 +15,19 @@ msgstr ""
 "Generated-By: pygettext.py 1.5\n"
 
 
-#: AppRun:34
+#: AppRun:33
 msgid "Text below icons"
 msgstr ""
 
-#: AppRun:34
+#: AppRun:33
 msgid "Text beside icons"
 msgstr ""
 
-#: AppRun:35
+#: AppRun:34
 msgid "Icons only"
 msgstr ""
 
-#: AppRun:35
+#: AppRun:34
 msgid "Text only"
 msgstr ""
 
@@ -52,18 +52,22 @@ msgid "Icon theme"
 msgstr ""
 
 #: tips:8
-msgid "Toolbars and Menus"
+msgid "Colour scheme"
 msgstr ""
 
 #: tips:9
-msgid "Show icons in menus"
+msgid "Toolbars and Menus"
 msgstr ""
 
 #: tips:10
-msgid "Detachable toolbars"
+msgid "Show icons in menus"
 msgstr ""
 
 #: tips:11
+msgid "Detachable toolbars"
+msgstr ""
+
+#: tips:12
 msgid "Toolbar style:"
 msgstr ""
 

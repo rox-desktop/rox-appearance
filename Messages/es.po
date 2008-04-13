@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Toolbar&Menus 0.8\n"
-"POT-Creation-Date: 2006-05-11 18:16+UTC\n"
+"POT-Creation-Date: 2008-04-13 22:15+BST\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,19 +14,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: pygettext.py 1.4\n"
 
-#: AppRun:34
+#: AppRun:33
 msgid "Text below icons"
 msgstr "Texto debajo a los iconos"
 
-#: AppRun:34
+#: AppRun:33
 msgid "Text beside icons"
 msgstr "Texto junto a los iconos"
 
-#: AppRun:35
+#: AppRun:34
 msgid "Icons only"
 msgstr "Sólo iconos"
 
-#: AppRun:35
+#: AppRun:34
 msgid "Text only"
 msgstr "Sólo texto"
 
@@ -53,17 +53,21 @@ msgid "Icon theme"
 msgstr ""
 
 #: tips:8
-msgid "Toolbars and Menus"
+msgid "Colour scheme"
 msgstr ""
 
 #: tips:9
+msgid "Toolbars and Menus"
+msgstr ""
+
+#: tips:10
 msgid "Show icons in menus"
 msgstr "Mostrar iconos en los menús"
 
-#: tips:10
+#: tips:11
 msgid "Detachable toolbars"
 msgstr "Barras de herramientas desprendibles"
 
-#: tips:11
+#: tips:12
 msgid "Toolbar style:"
 msgstr "Etiquetas de los botones de barra de herramientas:"

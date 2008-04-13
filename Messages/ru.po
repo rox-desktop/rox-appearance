@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Appearance 0.8.0\n"
-"POT-Creation-Date: 2007-07-14 16:24+BST\n"
+"POT-Creation-Date: 2008-04-13 22:15+BST\n"
 "PO-Revision-Date: 2007-07-14 03:33+EEST\n"
 "Last-Translator: Konstantin Korikov <lostclus@ua.fm>\n"
 "Language-Team: Russian <RU@ru.org>\n"
@@ -14,19 +14,19 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: pygettext.py 1.1\n"
 
-#: AppRun:34
+#: AppRun:33
 msgid "Text below icons"
 msgstr "Текст под значками"
 
-#: AppRun:34
+#: AppRun:33
 msgid "Text beside icons"
 msgstr "Текст рядом со значками"
 
-#: AppRun:35
+#: AppRun:34
 msgid "Icons only"
 msgstr "Только значки"
 
-#: AppRun:35
+#: AppRun:34
 msgid "Text only"
 msgstr "Только текст"
 
@@ -55,17 +55,21 @@ msgid "Icon theme"
 msgstr "Тема значков"
 
 #: tips:8
+msgid "Colour scheme"
+msgstr ""
+
+#: tips:9
 msgid "Toolbars and Menus"
 msgstr "Меню и панели инструментов"
 
-#: tips:9
+#: tips:10
 msgid "Show icons in menus"
 msgstr "Показывать значки в меню"
 
-#: tips:10
+#: tips:11
 msgid "Detachable toolbars"
 msgstr "Отсоединяемые панели инструментов"
 
-#: tips:11
+#: tips:12
 msgid "Toolbar style:"
 msgstr "Стиль панели инструментов:"

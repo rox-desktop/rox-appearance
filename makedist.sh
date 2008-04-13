@@ -6,4 +6,4 @@ APPDIR=`dirname "$SCRIPT"`
 APPNAME=`basename "$APPDIR"`
 VERSION=`grep '<Version>' "$APPDIR/AppInfo.xml" | sed 's/.*<Version>\([0-9.]*\).*/\1/'`
 cd "$APPDIR/.."
-tar cfz "${APPNAME}-${VERSION}.tar.gz" --exclude='*.pyc' "$APPNAME"
+tar cfz "${APPNAME}-${VERSION}.tar.gz" --exclude='*.pyc' --exclude='.svn' "$APPNAME"
