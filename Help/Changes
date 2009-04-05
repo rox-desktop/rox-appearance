@@ -2,12 +2,26 @@
 			Choose themes etc
 			by Guido Schimmels and Tony Houghton
 		
+05-Apr-2009
+~~~~~~~~~~~
+(Version 0.9.1)
+
+Merged in some overlooked stuff from 0.8.0 (Tony Houghton).
+
 09-Dec-2007
 ~~~~~~~~~~~
-
 (Version 0.9.0)
 
 Added colour scheme dialog (Tony Houghton).
+
+09-Sep-2006
+~~~~~~~~~~~
+(Release 0.8.0)
+ 
+Somewhere along the way, changed from Theme and Toolbars&Menus to Appearance
+Added to rox SVN.
+Use latest findrox.py
+Support newest DBUS and ROX-Lib's xmlrpc
 
 04-Oct-2005
 ~~~~~~~~~~~

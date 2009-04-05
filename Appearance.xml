@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type='text/xsl'
+     href='http://0install.net/2006/stylesheets/interface.xsl'?>
+<interface xmlns="http://zero-install.sourceforge.net/2004/injector/interface">
+  <name>Appearance</name>
+  <summary>GTK and Icon them configuration applet</summary>
+  <description>
+This configuration tool lets you configure your GTK and Icon themes and colour
+schemes. It also lets you set certain options of your Toolbars and Menus.
+
+You need to be running ROX-Session as your session manager for this to work.
+  </description>
+  <icon href="http://rox.sourceforge.net/Icons/Appearance.png" type="image/png"/>
+  <homepage>http://rox.sourceforge.net/desktop/Mouse</homepage>
+
+  <feed-for interface="http://rox.sourceforge.net/2005/interfaces/Appearance"/>
+
+  <group main="AppRun">
+    <requires interface="http://rox.sourceforge.net/2005/interfaces/ROX-Lib">
+      <environment insert="ROX-Lib2/python" name="PYTHONPATH"/>
+    </requires>
+    <implementation id="." released="2006-10-25" stability="testing" version="0.8.0"/>
+  </group>
+</interface>

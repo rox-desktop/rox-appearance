@@ -4,11 +4,11 @@
 		<Summary xml:lang="de">GTK+ und Symbolthema wählen</Summary>
 	<About xml:lang="en">
 		<Purpose>Configure desktop appearance</Purpose>
-		<Version>0.9.0</Version>
+		<Version>0.9.1</Version>
 		<Authors>Guido Schimmels &lt;__guido__@web.de&gt;
 		  Tony Houghton &lt;h@realh.co.uk&gt;</Authors>
 		<License>GPL</License>
-		<Homepage>http://roxos.sunsite.dk/dev-contrib/guido/Configure/</Homepage>
+		<Homepage>http://rox.sourceforge.net/desktop/Appearance</Homepage>
 	</About>
 	<About xml:lang="de">
 		<Purpose  label="Funktion">Thema einstellen</Purpose>
